@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="vector">
+
+  <head>
+    <title>Vector Packages</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/p/static/css/semantic.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- <script src="http://ojjs.org/download/oj/0.1.5/oj.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="/p/static/javascript/vector.js"></script>
+    <script src="/p/static/javascript/semantic.min.js"></script>
+    <style>
+      @font-face { 
+        font-family: Denmark; 
+        src: url('http://www.mediafont.com/storage/contents/55/font.eot'); /* IE */ 
+        src: local('Denmark'), url('http://www.mediafont.com/storage/contents/55/DENMARK.TTF'); /* non-IE */ 
+      }
+      .vector { font-family: Denmark; }
+      body { font-family: "Source Sans Pro"; color: #444444; background-image: url("/p/static/images/cubes.png");}
+      /* http://subtlepatterns.com/patterns/geometry.png */
+      .vector-search { margin: 40px 40px; }
+      .vector-container { margin: auto; width: 960px; }
+      .vector-title { text-transform: capitalize }
+      .vector-package-item { min-height: 450px !important; text-transform: capitalize; }
+      .vector-image { height: 240px; width: 240px; padding: auto;}
+      .vector-label-def { min-width: 11em !important}
+      #vector-packages-list { min-height: 300px; }
+    </style>
+  </head>
+
+  <body class="Grid">
+
+    <div class="ui purple inverted menu">
+      <a class="item active vector" href="/p">Vector Packages</a>
+      <a class="item" href="http://vectorlinux.com">
+	<i class="home icon"></i> Vector Home
+      </a>
+      <a class="item">
+	<i class="question icon"></i> About
+      </a>
+    </div>
+
+    <div class="vector-container"> 
+
+    {% raw %}
+
+    <div ng-view></div>
+
+    {% endraw %}
+
+    <div class="ui basic right floated tertiary segment">by rbistolfi</div>
+
+    </div> <!-- container -->
+<div id="content"></div>
+  </body>
+</html>

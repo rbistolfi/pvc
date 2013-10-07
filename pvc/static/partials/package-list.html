@@ -1,0 +1,75 @@
+
+    <div class="ui form vector-search">
+      <form ng-submit="search(query)">
+	<div class="field">
+	  <div class="ui action input">
+	    <input placeholder="Search by name (full-text search TBD)" type="text" ng-model="query">
+	    <div class="ui blue button" ng-click="search(query)"><i class="search icon"></i> Search </div>
+	  </div>
+	</div>
+      </form>
+    </div>
+
+    <a name="search-results"></a>
+
+    <div class="ui tabular purple menu" id="vector-category-menu">
+      <a class="item" ng-click="set_category(9)" ng-class="{'active': category==9}">Featured</a>
+      <a class="item" ng-click="all_packages()"  ng-class="{'active': category==0}">All</a>
+      <a class="item" ng-click="set_category(1)" ng-class="{'active': category==1}">Games</a>
+      <a class="item" ng-click="set_category(2)" ng-class="{'active': category==2}">Internet</a>
+      <a class="item" ng-click="set_category(3)" ng-class="{'active': category==3}">Multimedia</a>
+      <a class="item" ng-click="set_category(4)" ng-class="{'active': category==4}">Office</a>
+      <a class="item" ng-click="set_category(5)" ng-class="{'active': category==5}">Education</a>
+      <a class="item" ng-click="set_category(6)" ng-class="{'active': category==6}">Devel</a>
+      <a class="item" ng-click="set_category(7)" ng-class="{'active': category==7}">System</a>
+      <a class="item" ng-click="set_category(8)" ng-class="{'active': category==8}" ng-show="category==8">Search</a>
+    </div>
+
+    <!--
+    <div class="ui toggle checkbox"><input name="testing" type="checkbox"><label></label></div>
+    <label>Include testing packages</label>
+
+    <div class="ui borderless purple inverted menu" ng-show="links.next">
+      <a class="icon item" ng-click="previous_page()"><i class="icon left arrow"></i></a>
+      <a class="item active">{{page}}</a>
+      <a class="icon item" ng-click="next_page()"><i class="icon right arrow"></i></a>
+    </div>
+    -->
+
+    <div class="ui segment stacked" id="vector-packages-list" ng-hide="!packages.length">
+      <div class="ui floating label green">*BETA*</div> 
+      <div class="ui three stackable items">
+
+	<div class="item vector-package-item" ng-repeat="package in packages|orderBy:package.filename">
+	  <div class="image" find-image-for="{{package.name}}"></div>
+	  <div class="content">
+	    <div class="name vector-title">{{package.name}}</div>
+	    <small>Games</small>
+	    <div class="ui list">
+	      <p class="item description">
+		<i class="right triangle icon"></i>
+		{{package.description.split("\n")[0]}}
+	      </p>
+	    </div>
+	    <a ng-href="#/{{package.name}}" class="ui blue mini button">
+	      <i class="icon right arrow"></i>
+	      Details
+	    </a>
+	  </div>
+	</div>
+	
+      </div>
+      <div class="ui dimmer" id="vector-loader"><div class="ui loader inverted"></div></div>
+    </div>
+
+    <div class="ui red center aligned basic inverted segment" ng-show="!packages.length">
+      <img src="http://fc01.deviantart.net/fs40/f/2009/046/2/a/Vasm_the_square_headed_robot_by_blurymind.png">
+      <span style="font-size:150px">  WUT ?</span><br>
+      --  Don't push me, I am just a computer
+    </div>
+
+    <div class="ui borderless purple inverted menu" ng-show="links.next">
+      <a class="icon item" ng-click="previous_page()"><i class="icon left arrow"></i></a>
+      <a class="item active">{{page}}</a>
+      <a class="icon item" ng-click="next_page()"><i class="icon right arrow"></i></a>
+    </div>
