@@ -43,15 +43,15 @@
 	</a>
 	<a class="item">
 	  <div class="ui horizontal right pointing label vector-label-def">Size</div>
-	  {{package["size uncompressed"]}}
+	  {{package.uncompressed}}k
 	</a>
 	<a class="item">
 	  <div class="ui horizontal right pointing label vector-label-def">Size (compressed)</div>
-	  {{package["size compressed"]}}
+	  {{package.compressed}}k
 	</a>
 	<a class="item">
 	  <div class="ui horizontal right pointing label vector-label-def">Requires</div>
-	  {{package.required|deplist}}
+	  {{package.required}}
 	</a>
       </div>
 

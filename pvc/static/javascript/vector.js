@@ -68,14 +68,14 @@ function VectorPackagesController ($scope, $routeParams, $http) {
     }
 
     $scope.next_page = function () {
-	var page_url = 'http://'+$scope.links.next.href;
+	var page_url = $scope.links.next.href;
 	get_packages(page_url, set_packages);
 	$scope.page++;
 	$("body,html").animate({scrollTop: 0}, "slow");
     }
 
     $scope.previous_page = function () {
-	var page_url = 'http://'+$scope.links.prev.href;
+	var page_url = $scope.links.prev.href;
 	get_packages(page_url, set_packages);
 	$scope.page--;
 	$("body,html").animate({scrollTop: 0}, "slow");
